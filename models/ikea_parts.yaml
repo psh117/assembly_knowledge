@@ -1,0 +1,43 @@
+ikea_wood_pin:
+    model_file: ikea_wood_pin.stl
+    part_number: 101350
+    assemble_points: []
+
+ikea_long_screw:
+    model_file: ikea_long_screw.stl
+    part_number: 104322
+    assemble_points: []
+
+ikea_short_screw:
+    model_file: ikea_short_screw.stl
+    part_number: 122925
+    assemble_points: []
+    
+ikea_l_bracket:
+    model_file: ikea_l_bracket.stl
+    part_number: 122620
+    assemble_points: []
+    
+ikea_stefan_bottom:
+    model_file: ikea_stefan_bottom.stl
+    assemble_points: []
+
+ikea_stefan_long:
+    model_file: ikea_stefan_long.stl
+    assemble_points: []
+
+ikea_stefan_short:
+    model_file: ikea_stefan_short.stl
+    assemble_points: []
+
+ikea_stefan_middle:
+    model_file: ikea_stefan_middle.stl
+    assemble_points: []
+
+ikea_stefan_side_left:
+    model_file: ikea_stefan_side_left.stl
+    assemble_points: []
+
+ikea_stefan_side_right:
+    model_file: ikea_stefan_side_right.stl
+    assemble_points: []

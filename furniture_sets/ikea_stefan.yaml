@@ -1,0 +1,23 @@
+include: [ikea_parts.yaml]
+
+parts:
+    - type: ikea_wood_pin
+      quantity: 14
+    - type: ikea_long_screw
+      quantity: 6
+    - type: ikea_short_screw
+      quantity: 4
+    - type: ikea_l_bracket
+      quantity: 4
+    - type: ikea_stefan_bottom
+      quantity: 1
+    - type: ikea_stefan_long
+      quantity: 1
+    - type: ikea_stefan_short
+      quantity: 1
+    - type: ikea_stefan_middle
+      quantity: 1
+    - type: ikea_stefan_side_left
+      quantity: 1
+    - type: ikea_stefan_side_right
+      quantity: 1
