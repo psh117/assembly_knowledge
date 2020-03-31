@@ -1,7 +1,5 @@
 # assembly_knowledge
 
-# assembly_knowledge
-
 ## Definitions
 
 | 국문명    | 영문명            | 설명                                        |
