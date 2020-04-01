@@ -1,0 +1,29 @@
+sequence_id: 1 
+total score: 152
+Assemblies:
+    - assembly_id: 1 # braket + part_2 
+      assembly_pair_ids: 
+        -  1
+        - 5 
+      assembly_skill: "single peg-in-hole"
+      assembly_point_pairs: 
+        - 1
+        - 1
+      transform:
+        - translation:
+          - 0
+          - 0
+          - 0
+        - rotation:
+          - 1
+          - 0
+          - 0
+          - 0
+      score: 10 
+    - assembly_id: 2 
+      assembly_pair_ids: 
+        - 2
+        - 5 
+      assembly_skill: "dual peg-in-hole"
+      ...
+    - assembly_id: 10

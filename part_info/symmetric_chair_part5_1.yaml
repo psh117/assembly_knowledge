@@ -1,0 +1,95 @@
+
+class_id: 3
+instance_id: 5
+type: furniture_part
+model_file: chair_part2.STEP
+assembly_points:
+  - assembly_point_id: 1
+    rotation: [0, 0, 0, 1]
+    translation: [1, 0, 0]
+    radius: 1.0
+    is_used: False
+  - assembly_point_id: 2
+    rotation: [0, 0, 0, -1]
+    translation: [-1, 0, 0]
+    radius: 1.0
+    is_used: False
+
+  - assembly_point_id: 3
+    rotation: [0, 0, 0, -1]
+    translation: [-1, 0, 0]
+    radius: 1.0
+    is_used: False
+  - assembly_point_id: 4
+    rotation: [0, 0, 0, -1]
+    translation: [-1, 0, 0]
+    radius: 1.0
+    is_used: False
+  - assembly_point_id: 5
+    rotation: [0, 0, 0, -1]
+    translation: [-1, 0, 0]
+    radius: 1.0
+    is_used: False
+
+  - assembly_point_id: 6
+    rotation: [0, 0, 0, -1]
+    translation: [-1, 0, 0]
+    radius: 1.0
+    is_used: False
+  - assembly_point_id: 7
+    rotation: [0, 0, 0, -1]
+    translation: [-1, 0, 0]
+    radius: 1.0
+    is_used: False
+  - assembly_point_id: 8
+    rotation: [0, 0, 0, -1]
+    translation: [-1, 0, 0]
+    radius: 1.0        
+    is_used: False
+
+assembly_targets:
+  - assembly_target_id: 1
+    assembly_point_ids: [1]
+    target_part_class_id: 1
+    target_part_assembly_ids: [1]
+    instruction_step: 1
+
+  - assembly_target_id: 2
+    assembly_point_ids: [1]
+    target_part_class_id: 1
+    target_part_assembly_ids: [2]
+    instruction_step: 1
+  - assembly_target_id: 3
+    assembly_point_ids: [2]
+    target_part_class_id: 1
+    target_part_assembly_ids: [1]
+    instruction_step: 1
+  - assembly_target_id: 4
+    assembly_point_ids: [2]
+    target_part_class_id: 1
+    target_part_assembly_ids: [2]
+    instruction_step: 1
+
+  - assembly_target_id: 5
+    assembly_point_ids: [2]
+    target_part_class_id: 7
+    target_part_assembly_ids: [1]
+    instruction_step: 2
+
+  - assembly_target_id: 5
+    assembly_point_ids: [2]
+    target_part_class_id: 7
+    target_part_assembly_ids: [2]
+    instruction_step: 2
+
+  - assembly_target_id: 5
+    assembly_point_ids: [3, 4, 5]
+    target_part_class_id: 10 # STEFAN 사이드
+    target_part_assembly_ids: [7, 8, 9]
+    instruction_step: 2
+  
+  - assembly_target_id: 6
+    assembly_point_ids: [1]
+    target_part_class_id: 1
+    target_part_assembly_ids: []
+    instruction_step: 1            

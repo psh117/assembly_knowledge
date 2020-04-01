@@ -21,11 +21,12 @@
 
 ## Step 1
 
-- 대회 당일 부품별 CAD 파일 수령 (*model_file*) -> CAD 파일명으로부터 조립 부품별 *수량(quantity)* 및 *종류(class_id)* 파악
-- 조립설명서 내 글자 인식 -> *연결부품 ID(connector_id)* 파악
+- 대회 당일 부품별 CAD 파일 수령 (**model_file**)
+- CAD 파일명으로부터 조립 부품별 연결 부품의 **수량(quantity)** 및 **종류(class_id)** 파악
+- 조립설명서 내 글자 인식 -> 가구 부품의 **수량(quantity)** 및 **연결부품 ID(connector_id)** 파악
 
 
-### Furniture Info
+### furniture_info
 
 - 특정 가구(ex. STEFAN)를 이루는 모든 조립부품에 대한 기본 정보
 - CAD파일-class_id 단위로 조립부품을 구분
@@ -40,7 +41,7 @@
 
     ikea_wood_pin:
         class_id: 2
-        type: connectors
+        type: connector
         connector_id: 102942 # 조립 설명서 상의 체결 부품 id
         quantity: 4
         model_file: ikea_wood_pin.stl
@@ -48,14 +49,14 @@
 ---
 ## Step 2
 
-- Furniture Info -> *instance_id* 할당
-- CAD 파일 분석 -> sub-axis 추출 및 Hole 크기 대조 -> 물리적으로 가능한 *조립 위치 후보군 (assembly_points)* 추출
-- 조립설명서 내 객체 인식 -> *설명서 단계 (instruction_step)* 및 단계별 *조립 부품-조립 행동(assembly_target, assembly_action)* 추출
+- Furniture Info -> **instance_id** 할당
+- CAD 파일 분석 -> sub-axis 추출 및 Hole 크기 대조 -> 물리적으로 가능한 **조립 위치 후보군 (assembly_points)** 추출
+- 조립설명서 내 객체 인식 -> **설명서 단계 (instruction_step)** 및 단계별 **조립 부품-조립 행동(assembly_target, assembly_action)** 추출
 
 
-### Part Info
+### part_info
 
-- 부품(instance_id)별 조립 정보
+- 조립 부품(instance_id)별 조립 정보
 - 조립 단계(assembly sequence) 생성 시 Node 및 Edge 정보로 활용
 
 #### stefan_side_left_1.yaml
@@ -68,10 +69,12 @@
         - assembly_point_id: 1
           rotation: [q1, q2, q3, q4]
           translation: [x, y, z]
+          is_used: False # 결합 부위의 사용 여부.
+
         - assembly_point_id: 2
           rotation: [q1', q2', q3', q4']
           translation: [x', y', z']
-    is_used: False
+          is_used: False
 
     assembly targets: # 이 부품을 기준으로, 물리적으로 가능한 모든 상대 부품과의 결합 방법
         - assembly_target_id: 1 #
@@ -89,10 +92,10 @@
 
 - 가상 시뮬레이션으로부터 동일 Score 간의 우선 순위를 결정 -> 세부 Score 할당
 - Part Info로부터 가능한 Assembly Sequences를 탐색
-- Score가 높은 순서대로 *sequence_id*를 부여
-- 조립 부품과 조립 행동을 고려하여 로봇이 수행할 *조립 스킬(assembly skill)*을 결정
+- Score가 높은 순서대로 **sequence_id**를 부여
+- 조립 부품과 조립 행동을 고려하여 로봇이 수행할 **조립 스킬(assembly skill)**을 결정
 
-### Assembly Sequences
+### aseembly_sequences
 
 - 알고리즘이 Part Info를 기반으로 생성해낸 조립 순서. Score가 높은 순서대로 정렬
 
@@ -104,6 +107,7 @@
           assembly_pair_ids: [1, 3] # 부품 A의 instance id - 부품 B의 instance id
           assembly_skill: "single peg-in-hole"
           assembly_point_pairs: [(2, 4)] # (부품 A의 assembly_point_id - 부품 B의 assembly_point_id), multi peg-inhole인 경우 여러개
+          
           score: 10 # 해당 조립 단계의 점수
         - assembly_id: 2
           assembly_pair_ids: [3, 5] # 조립 대상 부품의 Instance ID
