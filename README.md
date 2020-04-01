@@ -1,5 +1,11 @@
 # assembly_knowledge
 
+## TODO
+
+- Step1(furniture_info)와 Step3(assembly_sequences) 포맷은 구체화 되었으나, Step2(part_info)는 미완성
+- 조립설명서 내용 파악 알고리즘을 고려하여 Step2(part_info) 형식을 검토 및 수정 할 필요 있음
+- GIST 내부 논의 후 Assembly Sequence Generator & Validator 구성 방법 및 Score 부여 방법 구체화 예정
+
 ## Definitions
 
 | 국문명    | 영문명            | 설명                                        |
@@ -21,9 +27,9 @@
 
 ## Step 1
 
-- 대회 당일 부품별 CAD 파일 수령 (**model_file**)
-- CAD 파일명으로부터 조립 부품별 연결 부품의 **수량(quantity)** 및 **종류(class_id)** 파악
-- 조립설명서 내 글자 인식 -> 가구 부품의 **수량(quantity)** 및 **연결부품 ID(connector_id)** 파악
+- 대회 당일 부품별 CAD 파일 수령 (model_file)
+- CAD 파일명으로부터 조립 부품별 연결 부품의 수량(quantity) 및 종류(class_id) 파악
+- 조립설명서 내 글자 인식 -> 가구 부품의 수량(quantity) 및 연결부품 ID(connector_id) 파악
 
 
 ### furniture_info
@@ -33,25 +39,25 @@
 
 #### stefan.yaml
 
-    stefan_side_left:
-        class_id: 1
-        type: furniture_part
-        quantity: 4 # instance 개수
-        model_file: stefan_side_left.stl
-
-    ikea_wood_pin:
-        class_id: 2
+    chair_bracket:
+        class_id: 1 
         type: connector
-        connector_id: 102942 # 조립 설명서 상의 체결 부품 id
-        quantity: 4
-        model_file: ikea_wood_pin.stl
+        connector_id: 122620 # 조립 설명서 상의 체결 부품 id
+        quantity: 4 # instance 개수
+        model_file: chair_braket(4ea).STEP
+
+    chair_part1:
+        class_id: 2
+        type: furniture_part
+        quantity: 1
+        model_file: chair_part1.STEP
 
 ---
 ## Step 2
 
-- Furniture Info -> **instance_id** 할당
-- CAD 파일 분석 -> sub-axis 추출 및 Hole 크기 대조 -> 물리적으로 가능한 **조립 위치 후보군 (assembly_points)** 추출
-- 조립설명서 내 객체 인식 -> **설명서 단계 (instruction_step)** 및 단계별 **조립 부품-조립 행동(assembly_target, assembly_action)** 추출
+- Furniture Info -> instance_id 할당
+- CAD 파일 분석 -> sub-axis 추출 및 Hole 크기 대조 -> 물리적으로 가능한 조립 위치 후보군 (assembly_points) 추출
+- 조립설명서 내 객체 인식 -> 설명서 단계 (instruction_step) 및 단계별 조립 부품-조립 행동(assembly_target, assembly_action) 추출
 
 
 ### part_info
@@ -104,20 +110,16 @@
     total score: 152
     Assemblies:
         - assembly_id: 1 # 조립 단계 순서별로 부여. 단위 조립은 부품 A + 부품 B
-          assembly_pair_ids: [1, 3] # 부품 A의 instance id - 부품 B의 instance id
           assembly_skill: "single peg-in-hole"
-          assembly_point_pairs: [(2, 4)] # (부품 A의 assembly_point_id - 부품 B의 assembly_point_id), multi peg-inhole인 경우 여러개
-          
           score: 10 # 해당 조립 단계의 점수
-        - assembly_id: 2
-          assembly_pair_ids: [3, 5] # 조립 대상 부품의 Instance ID
-          assembly_skill: "dual peg-in-hole"
-          ...
-        - assembly_id: 10
+          assembly_part_pairs: [[1], [3]] # 부품 A의 instance id - 부품 B의 instance id
+          assembly_point_pairs: [[2], [4]] # (부품 A의 assembly_point_id - 부품 B의 assembly_point_id), multi peg-in-hole인 경우 여러개
 
-#### assembly_sequence_2.yaml
-    sequence_id: 2 # id는 스코어 높은 순서대로
-    total score: 142
-    Assemblies:
         - assembly_id: 2
-          ... 
+          score: 10 
+          assembly_skill: "dual peg-in-hole"
+          assembly_part_pairs: [[1, 1], [2, 3]] 
+          assembly_point_pairs: [[1, 2], [1, 1]]
+
+        - assembly_id: 10
+          ...
