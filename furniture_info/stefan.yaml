@@ -1,0 +1,56 @@
+chair_bracket:
+  class_id: 1
+  type: connector
+  connector_id: 122620
+  quantity: 4
+  model_file: chair_braket(4ea).STEP
+chair_part1:
+  class_id: 2
+  type: furniture_part
+  quantity: 1
+  model_file: chair_part1.STEP
+chair_part2:
+  class_id: 3
+  type: furniture_part
+  quantity: 1
+  model_file: chair_part2.STEP
+chair_part3:
+  class_id: 4
+  type: furniture_part
+  quantity: 1
+  model_file: chair_part3.STEP
+chair_part4:
+  class_id: 5
+  type: furniture_part
+  quantity: 1
+  model_file: chair_part4.STEP
+chair_part5:
+  class_id: 6
+  type: furniture_part
+  quantity: 1
+  model_file: chair_part5.STEP
+chair_pin:
+  class_id: 7
+  type: connector
+  connector_id: 101350
+  quantity: 14
+  model_file: chair_pin(14ea).STEP
+countersunk_flat_head_cross_recess_screw_iso:
+  class_id: 8
+  type: connector
+  connector_id: 104322
+  quantity: 6
+  model_file: countersunk_flat_head_cross_recess_screw_iso(6ea).STEP
+pan_head_cross_recess_screw_iso:
+  class_id: 9
+  type: connector
+  connector_id: 122925
+  quantity: 4
+  model_file: pan_head_cross_recess_screw_iso(4ea).STEP
+symmetric_chair_part5:
+  class_id: 10
+  type: furniture_part
+  quantity: 1
+  model_file: 대칭_복사chair_part5.STEP
+
+

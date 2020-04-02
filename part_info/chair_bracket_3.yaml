@@ -1,0 +1,54 @@
+
+class_id: 1
+instance_id: 1
+type: connector
+model_file: chair_braket(4ea).STEP
+assembly_points:
+  - assembly_point_id: 1
+    rotation: [0, 0, 0, 1]
+    translation: [1, 0, 0]
+    radius: 1.0
+    is_used: False
+  - assembly_point_id: 2
+    rotation: [0, 0, 0, -1]
+    translation: [-1, 0, 0]
+    radius: 1.0
+    is_used: False
+assembly_targets:
+  - assembly_target_id: 1
+    assembly_point_ids: [1]
+    target_part_class_id: 3 # chair_part2.STEP
+    target_part_assembly_ids: [1]
+    instruction_step: 1
+
+  - assembly_target_id: 2
+    assembly_point_ids: [1]
+    target_part_class_id: 3 # chair_part2.STEP
+    target_part_assembly_ids: [2]
+    instruction_step: 1
+
+  - assembly_target_id: 3
+    assembly_point_ids: [1]
+    target_part_class_id: 4 # chair_part3.STEP
+    target_part_assembly_ids: [1]
+    instruction_step: 1    
+
+  - assembly_target_id: 4
+    assembly_point_ids: [1]
+    target_part_class_id: 4 # chair_part3.STEP
+    target_part_assembly_ids: [2]
+    instruction_step: 1
+  
+  - assembly_target_id: 5
+    assembly_point_ids: [2]
+    target_part_class_id: 
+    target_part_assembly_ids: []
+    instruction_step: 
+  
+  - assembly_target_id: 6
+    assembly_point_ids: [2]
+    target_part_class_id: 
+    target_part_assembly_ids: []
+    instruction_step: 
+  
+   
