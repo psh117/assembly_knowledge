@@ -39,18 +39,24 @@
 #### stefan.yaml
 
 ```yaml
-chair_bracket:
+ikea_stefan_side_left:
     class_id: 1
-    type: connector
-    connector_id: 122620 # 조립 설명서 상의 체결 부품 id
-    quantity: 4 # instance 개수
-    model_file: chair_braket(4ea).STEP
+    type: furniture_part
+    quantity: 1
+    model_file: ikea_stefan_side_left.stl
 
-chair_part1:
+ikea_stefan_long:
     class_id: 2
     type: furniture_part
     quantity: 1
-    model_file: chair_part1.STEP
+    model_file: ikea_stefan_long.stl
+
+ikea_l_bracket:
+    class_id: 3
+    type: connector
+    connector_id: 122620 # 조립 설명서 상의 체결 부품 id
+    quantity: 4 # instance 개수
+    model_file: ikea_l_bracket.stl
 ```
 
 ---
@@ -66,32 +72,33 @@ chair_part1:
 - 조립 부품(instance_id)별 조립 정보
 - 조립 단계(assembly sequence) 생성 시 Node 및 Edge 정보로 활용
 
-#### stefan_side_left_1.yaml
+#### part_info.yaml
 
 ```yaml
-class_id: 1
-instance_id: 1
-type: furniture_part
-model_file: stefan_side_left.stl
-assembly_points: # 이 부품의 결합 가능한 모든 위치
-    - assembly_point_id: 1
-      pose: [[x, y, z], [x, y, z, w]] # point, orientation (quaternion)
-      is_used: False # 결합 부위의 사용 여부.
+ikea_stefan_side_left_1: # instance_id, 추후 디버깅의 편리를 위해 type_i
+    type: ikea_stefan_side_left # stefan.yaml 에서 정보를 가져옴
 
-    - assembly_point_id: 2
-      pose: [[x, y, z], [x, y, z, w]] # point, orientation (quaternion)
-      is_used: False
+    assembly_points: # 이 부품의 결합 가능한 모든 위치
+        - id: 1
+            pose: [[x, y, z], [x, y, z, w]] # point, orientation (quaternion)
+            is_used: False # 결합 부위의 사용 여부.
+        - id: 2
+            pose: [[x, y, z], [x, y, z, w]] # point, orientation (quaternion)
+            is_used: False
 
-assembly_targets: # 이 부품을 기준으로, 물리적으로 가능한 모든 상대 부품과의 결합 방법
-    - assembly_target_id: 1 #
-      assembly_point_ids: [1] # 조립시 사용되는 이 부품의 assembly_point_id, multi peg-in-hole일 경우 2개 이상.
-      target_part_class_id: 2 # 조립시 사용되는 상대 부품의 ID
-      target_part_assembly_point_ids: [2] # 조립시 사용되는 상대 부품의 assembly_point_id
-      instruction step: 1 # 설명서에 기재된 순서, 기재되지 않았을 경우 None
-      score: 10 # ex. 설명서에서 지시한 내용(A와 B가 결합한다.) + 물리적으로 가능 = 10 / 설명서에는 없으나 물리적으로 가능함 = 1
-      assembly_action: "끼워넣기" # 설명서 기준 조립 방법
-    - assembly_target_id: 2
-...
+    assembly_targets: # 이 부품을 기준으로, 물리적으로 가능한 모든 상대 부품과의 결합 방법
+        - id: 1 #
+            assembly_point_ids: [1] # 조립시 사용되는 이 부품의 assembly_point_id, multi peg-in-hole일 경우 2개 이상.
+            target_part_class_id: 2 # 조립시 사용되는 상대 부품의 ID
+            target_part_type: ikea_stefan_long
+            target_part_assembly_point_ids: [2] # 조립시 사용되는 상대 부품의 assembly_point_id
+            instruction_step: 1 # 설명서에 기재된 순서, 기재되지 않았을 경우 None
+            score: 10
+            # ex. 설명서에서 지시한 내용(A와 B가 결합한다.) + 물리적으로 가능 = 10
+            # 설명서에는 없으나 물리적으로 가능함 = 1
+            assembly_action: "끼워넣기" # 설명서 기준 조립 방법
+        - id: 2
+            ...
 ```
 
 ---
@@ -175,7 +182,7 @@ assemblies:
     assembly_skill: "dual peg-in-hole"
     score: 10
     assembly_part_pairs: [ikea_stefan_side_left_1, ikea_stefan_long_1]
-    assembly_point_pairs: [[long_hole_1, long_hole_2], [hole_1, hole_2]]
+    assembly_point_pairs: [[1, 2], [1, 2]]
     assembly_status:
         ikea_stefan_long_1:
             ikea_wood_pin_1: {} # connector는 부품의 child로 하여 명시적으로 조립된 것을 표기
@@ -231,7 +238,7 @@ assemblies:
     assembly_skill: "placement" # 끼워넣기?
     score: 10
     assembly_part_pairs: [ikea_stefan_side_left_1, ikea_stefan_bottom_1]
-    assembly_point_pairs: [[bottom_target], [base]]
+    assembly_point_pairs: [50, 1] # 이 부분 어떻게 할 지 논의 필요
     assembly_status:
         ikea_stefan_side_left_1:
             ikea_stefan_long_1:
