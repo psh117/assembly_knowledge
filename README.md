@@ -126,7 +126,7 @@ assemblies:
     assembly_part_pairs: [ikea_stefan_long_1, ikea_l_bracket_1] # [[부품 A의 instance id], [부품 B의 instance id]]
     # [[부품 A의 assembly_point_id], [부품 B의 assembly_point_id]]
     # multi peg-in-hole인 경우 여러개. e.g. : [[2, 3], [1,2]]
-    assembly_point_pairs: [[bracket_hole_1], [pin]]
+    assembly_point_pairs: [[5], [1]]
     assembly_status:
         ikea_stefan_long_1: {}
         ikea_stefan_short_1: {}
