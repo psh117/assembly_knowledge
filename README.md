@@ -79,25 +79,25 @@ ikea_stefan_side_left_1: # instance_id, 추후 디버깅의 편리를 위해 typ
     type: ikea_stefan_side_left # stefan.yaml 에서 정보를 가져옴
 
     assembly_points: # 이 부품의 결합 가능한 모든 위치
-        - id: 1
-            pose: [[x, y, z], [x, y, z, w]] # point, orientation (quaternion)
-            is_used: False # 결합 부위의 사용 여부.
-        - id: 2
-            pose: [[x, y, z], [x, y, z, w]] # point, orientation (quaternion)
-            is_used: False
+      - id: 1
+        pose: [[x, y, z], [x, y, z, w]] # point, orientation (quaternion)
+        is_used: False # 결합 부위의 사용 여부.
+      - id: 2
+        pose: [[x, y, z], [x, y, z, w]] # point, orientation (quaternion)
+        is_used: False
 
     assembly_targets: # 이 부품을 기준으로, 물리적으로 가능한 모든 상대 부품과의 결합 방법
-        - id: 1 #
-            assembly_point_ids: [1] # 조립시 사용되는 이 부품의 assembly_point_id, multi peg-in-hole일 경우 2개 이상.
-            target_part_class_id: 2 # 조립시 사용되는 상대 부품의 ID
-            target_part_type: ikea_stefan_long
-            target_part_assembly_point_ids: [2] # 조립시 사용되는 상대 부품의 assembly_point_id
-            instruction_step: 1 # 설명서에 기재된 순서, 기재되지 않았을 경우 None
-            score: 10
-            # ex. 설명서에서 지시한 내용(A와 B가 결합한다.) + 물리적으로 가능 = 10
-            # 설명서에는 없으나 물리적으로 가능함 = 1
-            assembly_action: "끼워넣기" # 설명서 기준 조립 방법
-        - id: 2
+      - id: 1 #
+        assembly_point_ids: [1] # 조립시 사용되는 이 부품의 assembly_point_id, multi peg-in-hole일 경우 2개 이상.
+        target_part_class_id: 2 # 조립시 사용되는 상대 부품의 ID
+        target_part_type: ikea_stefan_long
+        target_part_assembly_point_ids: [2] # 조립시 사용되는 상대 부품의 assembly_point_id
+        instruction_step: 1 # 설명서에 기재된 순서, 기재되지 않았을 경우 None
+        score: 10
+        # ex. 설명서에서 지시한 내용(A와 B가 결합한다.) + 물리적으로 가능 = 10
+        # 설명서에는 없으나 물리적으로 가능함 = 1
+        assembly_action: "끼워넣기" # 설명서 기준 조립 방법
+      - id: 2
             ...
 ```
 
