@@ -1,1 +1,33 @@
 grasp_points: 
+    - lower_bound:    [0.17, -0.0175, 0.01]
+      upper_bound:    [-0.17, -0.0175, 0.01]
+      orientation:    [0, 0.707107, 0.707107, 0]
+      distance:       0.34
+    - lower_bound:    [-0.17, 0.0175, 0.01]
+      upper_bound:    [0.17, 0.0175, 0.01]
+      orientation:    [0.707107, 0, 0, 0.707107]
+      distance:       0.34
+    - lower_bound:    [-0.17, 0, 0.0125]
+      upper_bound:    [0.17, 0, 0.0125]
+      orientation:    [1, -0, 0, -0]
+      distance:       0.34
+    - lower_bound:    [0.17, 0, 0.0075]
+      upper_bound:    [-0.17, 0, 0.0075]
+      orientation:    [0, 0, 1, -0]
+      distance:       0.34
+    - lower_bound:    [0.16, 0, 0.0125]
+      upper_bound:    [-0.17, 0, 0.0125]
+      orientation:    [0, 1, 0, 0]
+      distance:       0.33
+    - lower_bound:    [-0.17, 0, 0.0075]
+      upper_bound:    [0.16, 0, 0.0075]
+      orientation:    [0, 0, 0, 1]
+      distance:       0.33
+    - lower_bound:    [-0.17, -0.0175, 0.01]
+      upper_bound:    [0.16, -0.0175, 0.01]
+      orientation:    [-0.707107, 0, -0, 0.707107]
+      distance:       0.33
+    - lower_bound:    [0.16, 0.0175, 0.01]
+      upper_bound:    [-0.16, 0.0175, 0.01]
+      orientation:    [-0, 0.707107, -0.707107, 0]
+      distance:       0.32

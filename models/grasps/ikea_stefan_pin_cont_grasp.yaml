@@ -1,0 +1,11 @@
+grasp_points: 
+    - lower_bound:    [0.0, 0.0, 0.00]
+      upper_bound:    [0.0, 0.0, 0.00]
+      orientation:    [0, 0, 0, 1]
+      # orientation:    [0, 0, 0.707, 0.707]
+      distance:       0.0
+    - lower_bound:    [0.0, 0.0, 0.03]
+      upper_bound:    [0.0, 0.0, 0.03]
+      orientation:    [1, 0, 0, 0]
+      # orientation:    [0.707, -0.707, 0, 0]
+      distance:       0.0
