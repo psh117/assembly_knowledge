@@ -37,7 +37,7 @@ output_file_suffix: _grasp.yaml
 ## display position
 camera_position: [1.5, 1.5, 1.5, 0.0, 0.0, 1.0]
 
-attach_coordination: false
+attach_coordination: true
 
 ## background color
 background_color: [1.0, 1.0, 1.0]

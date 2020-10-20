@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<robot name="plane_with_box">
+  <link name="planeLink">
+    <contact>
+      <lateral_friction value="1" />
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value=".0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 -5" />
+      <geometry>
+        <box size="30 30 10" />
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 -5" />
+      <geometry>
+        <box size="30 30 10" />
+      </geometry>
+    </collision>
+
+  </link>
+
+  <link name="BoxLink1">
+    <contact>
+      <lateral_friction value="1" />
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value=".0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.72 -0.04 0.0805" />
+      <geometry>
+        <box size="0.35 0.20 0.16" />
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.72 -0.04 0.0805" />
+      <geometry>
+        <box size="0.35 0.20 0.16" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="BoxLink2">
+    <contact>
+      <lateral_friction value="1" />
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value=".0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.46 -0.5 0.0805" />
+      <geometry>
+        <box size="0.20 0.15 0.16" />
+      </geometry>
+      <material name="black">
+        <color rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.46 -0.5 0.0805" />
+      <geometry>
+        <box size="0.20 0.15 0.16" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="BoxLink3">
+    <contact>
+      <lateral_friction value="1" />
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value=".0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.6 0.4 0.0805" />
+      <geometry>
+        <box size="0.15 0.20 0.16" />
+      </geometry>
+      <material name="black">
+        <color rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.6 0.4 0.0805" />
+      <geometry>
+        <box size="0.15 0.20 0.16" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="BoxLink4">
+    <contact>
+      <lateral_friction value="1" />
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value=".0" />
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.44 0.075 0.0805" />
+      <geometry>
+        <box size="0.20 0.20 0.16" />
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.44 0.075 0.0805" />
+      <geometry>
+        <box size="0.20 0.20 0.16" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="box_joint_1" type="fixed">
+    <parent link="planeLink"/>
+    <child link="BoxLink1"/>
+  </joint>
+
+  <joint name="box_joint_2" type="fixed">
+    <parent link="planeLink"/>
+    <child link="BoxLink2"/>
+  </joint>
+
+  <joint name="box_joint_3" type="fixed">
+    <parent link="planeLink"/>
+    <child link="BoxLink3"/>
+  </joint>
+
+  <joint name="box_joint_4" type="fixed">
+    <parent link="planeLink"/>
+    <child link="BoxLink4"/>
+  </joint>
+</robot>
