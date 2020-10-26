@@ -49,7 +49,7 @@ gripper_opacity: 0.4
 point_opacity: 1.0
 point_size: 15
 
-display_figure: true
+display_figure: false
 display_hand: true
 display_collision: false
 display_preliminary_points: true # not yet (always true)
