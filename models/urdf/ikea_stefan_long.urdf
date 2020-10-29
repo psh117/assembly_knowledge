@@ -1,0 +1,22 @@
+<robot name="ikea_stefan_long">
+	<link name="_name">
+		<visual>
+			<origin rpy="0 0 0" xyz="6.242013087143495e-09 -2.870633487654917e-05 -0.009993071181737746" />
+			<geometry>
+				<mesh filename="package://assembly_knowledge/models/obj/ikea_stefan_long.obj" scale="1 1 1" />
+			</geometry>
+			<material name="texture">
+				<color rgba="1.0 1.0 1.0 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="package://assembly_knowledge/models/vhacd/ikea_stefan_long_vhacd.obj" scale="1 1 1" />
+			</geometry>
+		<origin rpy="0 0 0" xyz="6.242013087143495e-09 -2.870633487654917e-05 -0.009993071181737746" /></collision>
+		<inertial>
+			<mass value="1.0" />
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+		</inertial>
+	</link>
+</robot>
