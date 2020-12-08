@@ -31,3 +31,19 @@ grasp_points:
       upper_bound:    [-0.125, 0.0175, 0.01]
       orientation:    [-0, 0.707107, -0.707107, 0]
       distance:       0.25
+    - lower_bound:    [-0.1275, -0.025, 0.01]
+      upper_bound:    [-0.1275, 0.015, 0.01]
+      orientation:    [0.5, 0.5, 0.5, 0.5]
+      distance:       0.04
+    - lower_bound:    [0.1275, 0.015, 0.01]
+      upper_bound:    [0.1275, -0.025, 0.01]
+      orientation:    [0.5, -0.5, -0.5, 0.5]
+      distance:       0.04
+    - lower_bound:    [-0.1275, 0.015, 0.01]
+      upper_bound:    [-0.1275, -0.015, 0.01]
+      orientation:    [0.5, -0.5, 0.5, -0.5]
+      distance:       0.03
+    - lower_bound:    [0.1275, -0.015, 0.01]
+      upper_bound:    [0.1275, 0.015, 0.01]
+      orientation:    [0.5, 0.5, -0.5, -0.5]
+      distance:       0.03
